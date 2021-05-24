@@ -13,7 +13,7 @@
 
 ## Live Demo
 
-TBA
+Access the [live demo here](https://social-scaffold-fernandorpm.herokuapp.com/).
 
 ## Entity Relationship Diagram
 
