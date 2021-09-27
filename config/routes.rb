@@ -11,4 +11,12 @@ Rails.application.routes.draw do
   resources :friendships, only: %i[create update], controller: 'friendships'
   delete '/friendships/:id' => 'friendships#destroy', as: :destroy_friendship
 
+  namespace :api do
+    namespace :v1 do
+      resources :posts, only: %i[index create] do
+        resources :comments, only: [:create]
+      end
+    end
+  end
+
 end
