@@ -3,14 +3,14 @@ module Api
     class CommentsController < ApiController
 
       def create
-        @comment = Comment.new(comment_params)
-        @comment.post_id = params[:post_id]
+        @comment = Comment.new(id: params[:post_id], content: params[:content], user: current_user)
+        # @comment.post_id = params[:post_id]
         @comment.user = current_user
 
         if @comment.save
-          'Salvou'
+          @comment
         else
-          'Não salvou'
+          'egrqegr'
         end
       end
 

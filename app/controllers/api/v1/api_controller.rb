@@ -1,8 +1,9 @@
 module Api
   module V1
     class ApiController < ActionController::Base
-      before_action :check_basic_auth
+      # before_action :check_basic_auth
       skip_before_action :verify_authenticity_token
+      protect_from_forgery with: :null_session
       private
       def check_basic_auth
         unless request.authorization.present?
