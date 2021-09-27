@@ -12,11 +12,11 @@ Rails.application.routes.draw do
   delete '/friendships/:id' => 'friendships#destroy', as: :destroy_friendship
 
   namespace :api do
-    namespace :v1 do
+    namespace :v1, defaults: { format: :json } do
+      devise_for :users
       resources :posts, only: [:index] do
         resources :comments, only: [:create]
       end
     end
   end
-
 end
